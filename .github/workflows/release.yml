@@ -35,8 +35,10 @@ jobs:
           submodules: true
       - name: Install Ninja
         run: choco install ninja -y
-      - name: Install OpenGL
-        run: choco install opengl -y
+      - name: Install Build Tools
+        run: |
+          choco install -y visualstudio2022buildtools
+          choco install -y visualstudio2022-workload-vctools
       - name: Configure CMake
         run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
       - name: Build
