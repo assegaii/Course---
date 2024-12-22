@@ -1,0 +1,9 @@
+[submodule "externals/fltk"]
+	path = externals/fltk
+	url = https://github.com/fltk/fltk.git
+[submodule "externals/libsndfile"]
+	path = externals/libsndfile
+	url = https://github.com/erikd/libsndfile.git
+[submodule "externals/opus"]
+	path = externals/opus
+	url = https://github.com/xiph/opus.git
