@@ -16,7 +16,7 @@ jobs:
           sudo apt-get update && \
           sudo apt-get install -y libasound2-dev ninja-build build-essential libgl1-mesa-dev xorg-dev
       - name: Configure CMake
-        run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release 
       - name: Build
         run: cmake --build build --config Release
       - name: Package
@@ -40,7 +40,7 @@ jobs:
           choco install -y visualstudio2022buildtools
           choco install -y visualstudio2022-workload-vctools
       - name: Configure CMake
-        run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release 
       - name: Build
         run: cmake --build build --config Release
       - name: Package
@@ -82,7 +82,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./AudioEditor-*.deb
+          asset_path: ./build/AudioEditor-1.4.1-Linux.deb
           asset_name: AudioEditor-v1.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
       - name: Upload Windows Asset
@@ -91,6 +91,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./AudioEditor-*.zip
+          asset_path: ./build/AudioEditor-1.4.1-win64.zip
           asset_name: AudioEditor-v1.0.${{ github.run_number }}-Windows.zip
           asset_content_type: application/zip
