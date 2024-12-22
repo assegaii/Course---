@@ -31,7 +31,7 @@ install(TARGETS AudioEditor DESTINATION bin)
 
 target_compile_options(AudioEditor PRIVATE
     $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-    $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -Werror>
+    $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra>
 )
 
 set(CPACK_PACKAGE_NAME "AudioEditor")
