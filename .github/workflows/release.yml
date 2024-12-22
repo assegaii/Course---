@@ -61,6 +61,8 @@ jobs:
         with:
           name: linux-audioeditor
           path: ./
+      - name: List downloaded artifacts
+        run: ls -lh ./
       - name: Download Windows Artifact
         uses: actions/download-artifact@v3
         with:
