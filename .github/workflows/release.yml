@@ -61,8 +61,6 @@ jobs:
         with:
           name: linux-audioeditor
           path: ./
-      - name: List downloaded artifacts
-        run: ls -lh ./
       - name: Download Windows Artifact
         uses: actions/download-artifact@v3
         with:
@@ -84,7 +82,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/AudioEditor-*.deb
+          asset_path: ./AudioEditor-*.deb
           asset_name: AudioEditor-v1.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
       - name: Upload Windows Asset
@@ -93,6 +91,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/AudioEditor-*.zip
+          asset_path: ./AudioEditor-*.zip
           asset_name: AudioEditor-v1.0.${{ github.run_number }}-Windows.zip
           asset_content_type: application/zip
