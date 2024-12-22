@@ -53,6 +53,7 @@ jobs:
 
   Release:
     runs-on: ubuntu-latest
+    permissions: write-all
     needs: [Linux, Windows]
     steps:
       - name: Download Linux Artifact
