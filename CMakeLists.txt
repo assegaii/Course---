@@ -7,10 +7,6 @@ set(PROJECT_VERSION 1.0.${PATCH_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
 add_subdirectory(externals/fltk)
 add_subdirectory(externals/libsndfile)
 add_subdirectory(externals/opus)
@@ -24,7 +20,7 @@ add_executable(AudioEditor main.cpp)
 target_link_libraries(AudioEditor PRIVATE fltk sndfile opus)
 
 if(WIN32)
-    set_target_properties(AudioEditor PROPERTIES OUTPUT_NAME "AudioEditor")
+    set_target_properties(AudioEditor PROPERTIES OUTPUT_NAME "AudioEditor-${PROJECT_VERSION}-Windows")
 endif()
 
 install(TARGETS AudioEditor DESTINATION bin)
@@ -34,7 +30,6 @@ target_compile_options(AudioEditor PRIVATE
     $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra>
 )
 
-set(CPACK_PACKAGE_NAME "AudioEditor")
 set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
